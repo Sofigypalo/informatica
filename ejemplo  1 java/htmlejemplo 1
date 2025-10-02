@@ -1,0 +1,8 @@
+<html>
+    <body>
+    <h1>Ejercicio: Modificar texto al presionar un botón</h1>
+<p id="sofigypalo">Texto original</p>
+<button id="btntexto">Haz clic</button>
+<script>src="./ejemplo1js"</script>
+    </body>
+    <html>
