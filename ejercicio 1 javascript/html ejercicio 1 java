@@ -1,0 +1,5 @@
+</spam>
+<h1>Ejercicio: Contador ascendente</h1>
+<p>Contador = <span id="conteo"> 0 </span>
+<button id="btnsubir">Subir</button>
+        
