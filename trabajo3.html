@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificar Edad</title>
+</head>
+<body>
+  <h1>Control de Edad</h1>
+  <button onclick="verificarEdad()">Verificar edad</button>
+
+  <script>
+    function verificarEdad() {
+      let edad = prompt("Por favor, ingresá tu edad:");
+    
+      edad = Number(edad);
+      
+      if (isNaN(edad)) {
+        alert("Por favor, ingresá un número válido.");
+      } else {
+        if (edad >= 18) {
+          alert("Acceso permitido. Sos mayor de edad.");
+        } else {
+          alert("Acceso denegado. Sos menor de edad.");
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+    .contenedor {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px gray;
+      display: inline-block;
+    }
+    input {
+      margin: 10px;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h2>Calculadora de IMC</h2>
+
+    <label>Peso (kg):</label>
+    <input type="number" id="peso" step="0.1" placeholder="Ej: 70"><br>
+
+    <label>Altura (m):</label>
+    <input type="number" id="altura" step="0.01" placeholder="Ej: 1.75"><br>
+
+    <button onclick="calcularIMC()">Calcular IMC</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularIMC() {
+      let peso = parseFloat(document.getElementById("peso").value);
+      let altura = parseFloat(document.getElementById("altura").value);
+
+      if (isNaN(peso) || isNaN(altura) || altura <= 0) {
+        document.getElementById("resultado").innerHTML = "Por favor, ingresá valores válidos.";
+        return;
+      }
+
+      let imc = peso / (altura * altura);
+      let mensaje = "Tu IMC es: " + imc.toFixed(1) + "<br>";
+
+      if (imc < 18.5) {
+        mensaje += "Interpretación: Bajo peso";
+      } else if (imc < 25) {
+        mensaje += "Interpretación: Peso normal";
+      } else if (imc < 30) {
+        mensaje += "Interpretación: Sobrepeso";
+      } else {
+        mensaje += "Interpretación: Obesidad";
+      }
+
+      document.getElementById("resultado").innerHTML = mensaje;
+    }
+  </script>
+
+</body>
+</html>

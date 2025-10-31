@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenida Estudiante</title>
+</head>
+<body>
+  <h2>Registrar Estudiante</h2>
+  <button onclick="registrarEstudiante()">Ingresar datos</button>
+
+  <script>
+    function registrarEstudiante() {
+      // Pedimos los datos al usuario
+      const nombre = prompt("Ingrese su nombre:");
+      const apellido = prompt("Ingrese su apellido:");
+      const curso = prompt("Ingrese su curso:");
+
+      // Creamos el contenido para la nueva página
+      const saludo = `
+        <h1>¡Bienvenido/a ${nombre} ${apellido}!</h1>
+        <p>Curso: ${curso}</p>
+        <p>Nos alegra tenerte con nosotros 😊</p>
+      `;
+
+      // Abrimos una nueva ventana y mostramos el mensaje
+      const nuevaVentana = window.open("", "_blank");
+      nuevaVentana.document.write(saludo);
+      nuevaVentana.document.close();
+    }
+  </script>
+</body>
+</html>

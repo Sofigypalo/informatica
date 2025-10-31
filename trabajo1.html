@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador que disminuye</title>
+</head>
+<body>
+  <h1>Contador</h1>
+  <h2 id="contador">10</h2>
+  <button onclick="disminuir()">Disminuir</button>
+
+  <script>
+    let contador = 10;
+
+    function disminuir() {
+      if (contador > 0) {
+        contador--;
+        document.getElementById("contador").innerText = contador;
+      } else {
+        alert("¡El contador llegó a 0!");
+      }
+    }
+  </script>
+</body>
+</html>

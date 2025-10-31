@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Adivinanza</title>
+</head>
+<body style="text-align: center; font-family: Arial; margin-top: 50px;">
+
+  <h1>🎯 Juego de Adivinanza 🎯</h1>
+  <p>Haz clic en el botón para intentar adivinar el número secreto.</p>
+  
+  <button onclick="jugar()">Jugar</button>
+
+  <p id="resultado" style="font-weight: bold; margin-top: 20px;"></p>
+
+  <script>
+    function jugar() {
+      const numeroSecreto = 7; 
+      const intento = prompt("Adivina el número secreto (entre 1 y 10):");
+      
+      if (intento === null) {
+        document.getElementById("resultado").textContent = "Juego cancelado.";
+        return;
+      }
+
+      const numeroUsuario = Number(intento);
+
+      if (numeroUsuario === numeroSecreto) {
+        document.getElementById("resultado").textContent = "🎉 ¡Acertaste! El número secreto era " + numeroSecreto + ".";
+      } else {
+        document.getElementById("resultado").textContent = "❌ No acertaste. El número secreto era " + numeroSecreto + ".";
+      }
+    }
+  </script>
+
+</body>
+</html>
+

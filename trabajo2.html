@@ -1,0 +1,65 @@
+<!doctype html>
+<button class="color-btn btn-c" data-bg="#FFEEAD" data-fg="#2B2C7A" aria-pressed="false">Cálido — Amarillo / Azul</button>
+</div>
+
+
+<p class="hint">Tip: los botones son accesibles por teclado (Tab + Enter/Espacio).</p>
+</main>
+
+
+<script>
+
+const buttons = document.querySelectorAll('.color-btn');
+const root = document.documentElement;
+const panel = document.getElementById('panel');
+
+
+function applyColors(bg, fg){
+root.style.setProperty('--bg', bg);
+root.style.setProperty('--fg', fg);
+
+function luminance(hex){
+
+const c = hex.replace('#','');
+const r = parseInt(c.substring(0,2),16)/255;
+const g = parseInt(c.substring(2,4),16)/255;
+const b = parseInt(c.substring(4,6),16)/255;
+
+return 0.2126*r + 0.7152*g + 0.0722*b;
+}
+const lum = luminance(bg);
+if(lum < 0.42){
+panel.classList.add('dark-panel');
+} else {
+panel.classList.remove('dark-panel');
+}
+}
+
+buttons.forEach(btn => {
+btn.addEventListener('click', () => {
+const bg = btn.getAttribute('data-bg');
+const fg = btn.getAttribute('data-fg');
+applyColors(bg, fg);
+
+buttons.forEach(b => b.setAttribute('aria-pressed','false'));
+btn.setAttribute('aria-pressed','true');
+});
+
+btn.addEventListener('keydown', (e) => {
+if(e.key === 'Enter' || e.key === ' '){
+e.preventDefault();
+btn.click();
+}
+});
+});
+
+
+(function init(){
+const first = buttons[0];
+if(first){
+first.click();
+}
+})();
+</script>
+</body>
+</html>

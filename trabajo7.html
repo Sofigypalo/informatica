@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calcular Promedio</title>
+</head>
+<body>
+  <h2>Calcular Promedio de Notas</h2>
+  <button onclick="calcularPromedio()">Calcular promedio</button>
+
+  <script>
+    function calcularPromedio() {
+      let nota1 = parseFloat(prompt("Ingrese la primera nota:"));
+      let nota2 = parseFloat(prompt("Ingrese la segunda nota:"));
+      let nota3 = parseFloat(prompt("Ingrese la tercera nota:"));
+
+      let promedio = (nota1 + nota2 + nota3) / 3;
+      if (promedio >= 6) {
+        alert("Promedio: " + promedio.toFixed(2) + " ✅ Aprobado");
+      } else {
+        alert("Promedio: " + promedio.toFixed(2) + " ❌ Desaprobado");
+      }
+    }
+  </script>
+</body>
+</html>
