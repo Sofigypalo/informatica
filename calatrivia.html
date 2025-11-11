@@ -47,19 +47,19 @@
      <label><input type="radio" name="p1" value="Roma"> Roma</label><br><br>
      
      </form>
-     <p><strong>1.</strong> ¿En qué año nació?</p>
+     <p><strong>2.</strong> ¿En qué año nació?</p>
      <label><input type="radio" name="p1" value="1556"> 1556</label><br>
       <label><input type="radio" name="p1" value=" 1656 "> 1656 </label><br>
       <label><input type="radio" name="p1" value= " 1756 "> 1756  </label><br><br>
-      <p><strong>1.</strong>¿Dónde fundó la primera escuela gratuita?</p>
+      <p><strong>3.</strong>¿Dónde fundó la primera escuela gratuita?</p>
       <label><input type="radio" name="p1" value=" Zaragoza"> Zaragoza</label><br>
        <label><input type="radio" name="p1" value="Roma">Roma </label><br>
        <label><input type="radio" name="p1" value= "Barcelona">Barcelona</label><br><br>
-       <p><strong>1.</strong>¿Qué lema representa su misión educativa?</p>
-       <label><input type="radio" name="p1" value=""> Zaragoza</label><br>
-        <label><input type="radio" name="p1" value="Roma">Roma </label><br>
-        <label><input type="radio" name="p1" value= "Barcelona">Barcelona</label><br><br>
-      <p><strong>1.</strong>¿Qué día se celebra su festividad?  </p>
+       <p><strong>4.</strong>¿Qué lema representa su misión educativa?</p>
+       <label><input type="radio" name="p1" value=" Fe y razón">Fe y razón</label><br>
+        <label><input type="radio" name="p1" value="Justicia y amor ">Justicia y amor </label><br>
+        <label><input type="radio" name="p1" value= "Piedad y letras">Piedad y letras</label><br><br>
+      <p><strong>5.</strong>¿Qué día se celebra su festividad?  </p>
      <label><input type="radio" name="p1" value="25 de agosto"> 25 de agosto</label><br>
       <label><input type="radio" name="p1" value="12 de octubre">12 de octubre</label><br>
       <label><input type="radio" name="p1" value= "15 de mayo"> 15 de mayo</label><br><br>
@@ -83,13 +83,45 @@ document.getElementById("formTrivia").addEventListener("submit", function(e) {
  let salida = "";
  // Capturamos la respuesta de la PREGUNTA 1
  let r1 = document.querySelector('input[name="p1"]:checked');
+ let r2 = document.querySelector('input[name="p1"]:checked');
+ let r3 = document.querySelector('input[name="p1"]:checked');
+ let r4 = document.querySelector('input[name="p1"]:checked');
+ let r5 = document.querySelector('input[name="p1"]:checked');
  // Validamos
  if (r1) {
  if (r1.value === "Peralta de la Sal") {
  puntaje++;
- salida += "<p class='correcta'>1. 膆 Correcta</p>";
+  salida += "<p class='correcta'>1. 膆 Correcta</p>";
  } else {
  salida += "<p class='incorrecta'>1.  Incorrecta. Correcta: Peralta de la Sal</p>";
+ }
+ if (r2) {
+ if (r2.value === "1556") {
+ puntaje++;
+  salida += "<p class='correcta'>2. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>2.  Incorrecta. Correcta: Peralta de la Sal</p>";
+ }
+ if (r3) {
+  if (r3.value === "Roma") {
+ puntaje++;
+  salida += "<p class='correcta'>3. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>3.  Incorrecta. Correcta: Peralta de la Sal</p>";
+ }
+ if (r4) {
+  if (r4.value === "Piedad y letras") {
+ puntaje++;
+  salida += "<p class='correcta'>4. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>4.  Incorrecta. Correcta: Peralta de la Sal</p>";
+ }
+  if (r5) {
+  if (r5.value === "25 de agosto") {
+ puntaje++;
+ salida += "<p class='correcta'>5. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>5.  Incorrecta. Correcta: Peralta de la Sal</p>";
  }
  } else {
  salida += "<p class='incorrecta'>1.  No respondida. Correcta: Peralta de la Sal</p>";
