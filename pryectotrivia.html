@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=., initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+         display: none; 
+         position: fixed;
+         left: 0; top: 0;
+         width: 100%; height: 100%;
+         background-color: rgba(0,0,0,0.5);
+         z-index: 1000;
+        }
+        .modal-contenido {
+         background: white;
+         margin: 5% auto;
+         padding: 20px;
+         border-radius: 10px;
+         max-width: 600px;
+         max-height: 80vh;
+         overflow-y: auto;
+        }
+        .cerrar { float: right; cursor: pointer; font-size: 24px; }
+        </style> 
+        
+</head>
+<body>
+    <!-- SECCIÓN PARA JUGAR TRIVIA -->
+<section id="jugar-trivia">
+    <h2>¿Te animas a poner a prueba tus conocimientos?</h2>
+    <button id="abrirTrivia">Comenzar Trivia</button>
+    </section>
+    <!-- MODAL -->
+    <div id="modalTrivia" class="modal">
+     <div class="modal-contenido">
+     <span class="cerrar">&times;</span>
+     <!-- Aquí irá el formulario y resultados -->
+     <h2>Trivia sobre San José de Calasanz</h2>
+     <form id="formTrivia">
+      <p><strong>1.</strong>¿ A qué orden religiosa pertenecía el Beato Dionisio Pamplona?</p>
+      
+      <label><input type="radio" name="p1" value="Jesuitas">Jesuitas</label><br>
+      <label><input type="radio" name="p1" value="Escolapios">Escolapios</label><br>
+     <label><input type="radio" name="p1" value="Franciscanos">Franciscanos</label><br><br>
+     
+     <p><strong>2.</strong> ¿En qué localidad nació Dionisio Pamplona?</p>
+     <label><input type="radio" name="p2" value="Monzón, Huesca">Monzón, Huesca</label><br>
+      <label><input type="radio" name="p2" value="Buenos Aires, Argentina">Buenos Aires, Argentina</label><br>
+      <label><input type="radio" name="p2" value= "Calamocha, Teruel">Calamocha, Teruel</label><br><br>
+
+      <p><strong>3.</strong>3. Dionisio Pamplona es considerado mártir por haber muerto durante...</p>
+      <label><input type="radio" name="p3" value=" La Guerra Civil Española"> La Guerra Civil Española</label><br>
+       <label><input type="radio" name="p3" value=" La Primera Guerra Mundial"> La Primera Guerra Mundial</label><br>
+       <label><input type="radio" name="p3" value= "Una epidemia de gripe">Una epidemia de gripe</label><br><br>
+
+       <p><strong>4.</strong>¿Qué Papa beatificó a Dionisio Pamplona?</p>
+       <label><input type="radio" name="p4" value="Juan Pablo II ">Juan Pablo II </label><br>
+        <label><input type="radio" name="p4" value=" Benedicto XVI"></label> Benedicto XVI<br>
+        <label><input type="radio" name="p4" value= "Papa Francisco"></label>Papa Francisco<br><br>
+
+        <p><strong>5.</strong>Además de en España, ¿en qué otro país ejerció Dionisio Pamplona como rector y párroco?</p>
+     <label><input type="radio" name="p5" value="México">México</label><br>
+      <label><input type="radio" name="p5" value="Argentina ">Argentina </label><br>
+      <label><input type="radio" name="p5" value= "Italia">Italia</label><br><br>
+
+      <button type="submit">Enviar respuestas</button> 
+    </form>
+     </div> 
+     </div>
+    </div>  
+    <!-- SCRIPT básico para abrir/cerrar el MODAL-->
+<script>
+    const modal = document.getElementById("modalTrivia");
+    const btnAbrir = document.getElementById("abrirTrivia");
+    const btnCerrar = document.querySelector(".cerrar");
+    btnAbrir.onclick = () => { modal.style.display = "block"; };
+    btnCerrar.onclick = () => { modal.style.display = "none"; };
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+document.getElementById("formTrivia").addEventListener("submit", function(e) {
+ e.preventDefault();
+ // Variable para puntaje
+ let puntaje = 0;
+ let salida = "";
+ // Capturamos la respuesta de la PREGUNTA 1
+ let r1 = document.querySelector('input[name="p1"]:checked');
+  // Capturamos la respuesta de la PREGUNTA 2
+ let r2 = document.querySelector('input[name="p2"]:checked');
+  // Capturamos la respuesta de la PREGUNTA 3
+ let r3 = document.querySelector('input[name="p3"]:checked');
+ // Capturamos la respuesta de la PREGUNTA 4
+ let r4 = document.querySelector('input[name="p4"]:checked');
+ // Capturamos la respuesta de la PREGUNTA 5 
+ let r5 = document.querySelector('input[name="p5"]:checked');
+ 
+ // Validamos resp 1
+ if (r1) {
+ if (r1.value === "Escolapios") {
+ puntaje++;
+  salida += "<p class='correcta'>1. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>1.  Incorrecta. Correcta:Escolapios</p>";
+ }
+}
+
+// Validamos resp 2
+ if (r2) {
+ if (r2.value ===   "Calamocha, Teruel") {
+ puntaje++;
+  salida += "<p class='correcta'>2. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>2.  Incorrecta. Correcta:Calamocha, Teruel </p>";
+ }
+}
+ // Validamos resp 3
+ if (r3) {
+  if (r3.value === " La Guerra Civil Española") {
+ puntaje++;
+  salida += "<p class='correcta'>3. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>3.  Incorrecta. Correcta: La Guerra Civil Española </p>";
+ }
+}
+ // Validamos resp 4
+ if (r4) {
+  if (r4.value === "Juan Pablo II ") {
+ puntaje++;
+  salida += "<p class='correcta'>4. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>4.  Incorrecta. Correcta:Juan Pablo II </p>";
+ }
+}
+ // Validamos resp 5
+  if (r5) {
+  if (r5.value === "Argentina ") {
+ puntaje++;
+ salida += "<p class='correcta'>5. 膆 Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>5.  Incorrecta. Correcta:Argentina  P</p>";
+ }
+}
+
+ // Mostramos el resultado dentro del modal, debajo del formulario
+ salida += `<h4>Puntaje final: ${puntaje} de 1</h4>`;
+ salida += `<h4>Puntaje final: ${puntaje} de 2</h4>`;
+ salida += `<h4>Puntaje final: ${puntaje} de 3</h4>`;
+ salida += `<h4>Puntaje final: ${puntaje} de 4</h4>`;
+ salida += `<h4>Puntaje final: ${puntaje} de 5</h4>`; 
+ document.getElementById("resultado").innerHTML = salida;
+});
+</script> 
+
+   
+ 
+</body>
+</html>
